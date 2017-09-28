@@ -25,7 +25,7 @@ Public class Manager extends Employee {
   @Override public boolean equals(Object obj) {
     if (this == obj) return true;
     if (obj == null || (getClass() != obj.getClass()) return false;
-    Manager manager = (Manager) obj;
+    Manager manager = (Manager) obj; // cast everything.
     return (manager.getSalary() == this.getSalary() && manager.getName().equals(this.getName());
   }
 }
