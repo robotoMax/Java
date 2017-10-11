@@ -1,0 +1,68 @@
+//checked exception
+public class Foo extends Exception {
+	
+	public static void main(String[] args) {
+		throw new Foo();
+	}
+
+}//get an error
+
+
+public class Foo extends Exception {
+	
+	public static void main(String[] args) throws Foo{
+		throw new Foo();
+	}
+
+}
+
+//unchecked exception
+
+public class Foo extends RuntimeException {
+	
+	public static void main(String[] args) throws Foo{
+		throw new Foo();
+	}
+
+}
+//it can compile. it do not need to throw an exception. but it can
+
+
+
+
+public class Foo extends RuntimeException {
+	
+	public static void main(String[] args) throws Foo{
+		try{
+			throw new Foo();
+		} catch (Foo f) {
+			System.out.println("%s%n", f.getMessage());//throwable has a method named getMessage()
+		}
+		
+	}
+
+}
+
+
+public class Foo extends RuntimeException {
+	
+	public static void main(String[] args) throws Foo {
+		try {
+			throw new Foo("This is a stupid.....");
+		} catch (Foo f) {
+			System.out.println("%s%n", f.getMessage());//throwable has a method named getMessage()
+		}
+		
+	}
+//must have a constructor
+	public Foo(String message) {
+		super(message);
+	}
+
+}
+
+
+
+
+
+
