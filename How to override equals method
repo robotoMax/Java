@@ -1,0 +1,31 @@
+// How to Override class Object equals
+Public class Manager extends Employee {
+  private static final double DEFAULT_SALARY = 100d;
+  
+  private final Empolyee[] directReports;
+  
+  public Manager(String name, Employee[] directReports) {
+    this(name, DEFAULT_SALARY, directReports);
+  }
+  
+  public Manager(String name, double salary, Employee[] directReports){
+    super(name, salary);
+    if(directReports == null || directReports.length == 0) throw new IllegalArgumentException();
+    this.directReports = directReports;
+  }
+  
+  public double getSalary(){
+    return salary;
+  }
+  
+  public String getName(){
+    return name;
+  }
+  
+  @Override public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null || (getClass() != obj.getClass()) return false;
+    Manager manager = (Manager) obj; // cast everything.
+    return (manager.getSalary() == this.getSalary() && manager.getName().equals(this.getName());
+  }
+}
